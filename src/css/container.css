@@ -1,0 +1,136 @@
+
+/* ==== CARD ==== */
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+  width: 330px;
+
+  min-height: 60px;
+  position: relative;
+
+  /* ❌ Tirado o negrito geral */
+  font-weight: 400;
+
+  color: #00695c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+  text-align: center;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* ==== TÍTULO DO CARD ==== */
+.card .card-text {
+  padding: 8px;
+  font-size: 20px;
+
+  /* ✅ Leve destaque sem ficar pesado */
+  font-weight: 500;
+}
+
+/* ==== ÍCONES ==== */
+.card .arrow-icon,
+.card .plus-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  /* ✅ Ícones mais suaves */
+  font-weight: 400;
+}
+
+/* Ícone de abrir link (seta) */
+.card .arrow-icon {
+  top: 12px;
+  right: 12px;
+  border: 2px solid #00695c;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+/* Botão + */
+.card .plus-icon {
+  bottom: 12px;
+  left: 12px;
+  border: 2px dotted #00695c;
+  background-color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ==== CONTAINER DOS CARDS ==== */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  /* ✅ Espaçamento horizontal mantido, vertical reduzido */
+  column-gap: 20px;  /* antes era gap: 20px */
+  row-gap: 12px;     /* reduz o espaço entre linhas */
+
+  /* ✅ Espaço superior mais enxuto */
+  margin-top: 16px;  /* antes era 40px */
+  align-content: flex-start;  /* linha essencial */
+  padding: 20px;
+}
+
+/* ==== INFO BOX ==== */
+.card .info-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+
+  /* ✅ Texto confortável e leve */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+
+  opacity: 0;
+  margin-top: 10px;
+}
+
+/* Quando aberto */
+.card.is-open .info-box {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* ==== SELETOR DE IDIOMA (opcional) ==== */
+.language-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.language-selector button {
+  background-color: white;
+  color: #00695c;
+  border: 2px solid #00695c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  /* ❌ Remove negrito */
+  font-weight: 400;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-selector button.active {
+  background-color: #00695c;
+  color: white;
+}

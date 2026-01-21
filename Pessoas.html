@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal CMA</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="src/img/favicon1.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- CSS dos containers -->
+  <link rel="stylesheet" href="src/css/conteinerSSMA.css" />
+</head>
+
+<body class="bg-gray-100 font-sans w-full max-w-8xl mx-auto flex flex-col min-h-screen lg:h-screen lg:overflow-hidden">
+
+  <!-- Header -->
+  <header id="pageHeader" class="w-full bg-white border-b shadow-md border-gray-200 sticky top-0 z-20 flex-shrink-0">
+    <div class="max-w-[1500px] mx-auto flex items-center justify-between h-14 px-4 sm:px-6 lg:px-8">
+      
+      <!-- LOGO + TÍTULO -->
+      <div class="flex items-center gap-3">
+        <img src="src/img/LogoVale-Portal.png" alt="Logo Vale" class="h-10 w-auto" />
+        <div class="flex items-center gap-2">
+          <span class="text-[#007E7A]">|</span>
+          <span class="text-[#007E7A] text-lg font-medium">Pessoas</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <!-- Campo de busca para telas > 768px -->
+        <form class="hidden md:block" onsubmit="return false;">
+          <div class="relative">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar..."
+              class="searchInputControl pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#EDB111] focus:outline-none bg-gray-50 text-gray-700"
+            />
+            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <i data-feather="search" class="w-5 h-5"></i>
+            </span>
+          </div>
+        </form>
+
+        <div class="flex items-center gap-3">
+
+          <!-- Botão Home (volta para a página principal) -->
+          <a
+            href="index.html"
+            title="Voltar para a página inicial"
+            aria-label="Voltar para a página inicial"
+            class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-200 hover:bg-gray-300 transition focus:outline-none focus:ring-2 focus:ring-[#EDB111]"
+          >
+            <i data-feather="home" class="w-5 h-5 text-gray-600"></i>
+          </a>
+
+          <!-- Ícone de perfil -->
+          <span
+            id="profileIcon"
+            class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-200 cursor-pointer flex-shrink-0"
+          >
+            <i data-feather="user" class="w-6 h-6 text-gray-600"></i>
+          </span>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo de busca para telas < 768px -->
+    <div id="mobileSearch" class="max-w-[1500px] mx-auto px-4 pb-3 md:hidden">
+      <form onsubmit="return false;">
+        <div class="relative">
+          <input
+            type="text"
+            id="searchInputMobile"
+            placeholder="Buscar..."
+            class="searchInputControl w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#EDB111] focus:outline-none bg-gray-50 text-gray-700"
+          />
+          <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <i data-feather="search" class="w-5 h-5"></i>
+          </span>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="flex-1 lg:overflow-y-hidden">
+    <div class="w-full max-w-[1500px] mx-auto p-4 sm:p-6 lg:p-8 h-full">
+      <!-- Container das colunas com layout responsivo -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-8 h-full">
+
+        <!-- Coluna 1 - Administrativo (vermelho) -->
+        <div id="adminColuna" class="flex-col lg:flex-1 hidden hidden coluna-vermelho">
+          <div class="flex flex-col items-center mb-2 flex-shrink-0">
+            <div class="relative mb-2">
+              <span class="absolute -left-4 top-6 w-4 h-4 rounded-full bg-[#952B2D]"></span>
+              <span class="w-20 h-20 rounded-full bg-[#952B2D] border-8 border-white shadow-lg block"></span>
+            </div>
+            <span class="mt-2 text-[#952B2D] font-semibold text-base text-center">Administrativo</span>
+          </div>
+
+          <!-- LINKS ENVOLTOS NOS CONTAINERS -->
+          <div class="flex flex-col gap-4 pr-1 lg:overflow-y-auto sistemas-coluna">
+
+            <!-- RELATÓRIOS -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Relatórios</span>
+              <div class="box-grupo-ssma">
+                <!-- Sem itens cadastrados nesta coluna -->
+              </div>
+            </div>
+
+            <!-- FERRAMENTAS / SISTEMAS (vazio por enquanto, mantido para padrão) -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Ferramentas / Sistemas</span>
+              <div class="box-grupo-ssma">
+                <!-- Sem itens cadastrados nesta coluna -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Coluna 2 - Gestão (amarelo) -->
+        <div class="flex flex-col lg:flex-1 coluna-amarelo">
+          <div class="flex flex-col items-center mb-2 flex-shrink-0">
+            <div class="relative mb-2">
+              <span class="absolute -left-4 top-6 w-4 h-4 rounded-full bg-[#E3B023]"></span>
+              <span class="w-20 h-20 rounded-full bg-[#E3B023] border-8 border-white shadow-lg block"></span>
+            </div>
+            <span class="mt-2 text-[#E3B023] font-semibold text-base text-center">Gestão</span>
+          </div>
+
+          <!-- LINKS ENVOLTOS NOS CONTAINERS -->
+          <div class="flex flex-col gap-4 pr-1 lg:overflow-y-auto sistemas-coluna">
+
+            <!-- RELATÓRIOS -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Relatórios</span>
+              <div class="box-grupo-ssma">
+                 <a
+                  href="https://app.powerbi.com/groups/me/apps/7522a122-278c-42f8-ae3d-987549ce12b1/reports/d4e49691-5dcb-4ebe-87d7-26385476b103/ReportSection?ctid=7893571b-6c2c-4cef-b4da-7d4b266a0626&experience=power-bi&clientSideAuth=0"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="bar-chart" class="w-5 h-5"></i>
+                  <span class="text-sm">Power BI - Ações_SAP</span>
+                </a>
+                <a
+                  href="https://app.powerbi.com/groups/me/apps/2f385b54-02dd-45ab-a385-c5ba884c7d94/reports/f7795da9-7248-47ad-88b0-46b8f51ef373/ReportSection6427c328abe34b606bd4?experience=power-bi&clientSideAuth=0"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="bar-chart" class="w-5 h-5"></i>
+                  <span class="text-sm">Power BI - HR - INF HUB - Cockpit</span>
+                </a>
+                <a
+                  href="https://app.powerbi.com/groups/me/apps/a9ae45a0-6d4a-4ea0-b670-eb2793cd5507/reports/04d063af-61a7-474d-9a77-0cb1aef4794d/f04e9c06b6899e9ac7fd?ctid=7893571b-6c2c-4cef-b4da-7d4b266a0626&experience=power-bi"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="bar-chart" class="w-5 h-5"></i>
+                  <span class="text-sm">Power BI - HR - INF HUB - Metas</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- FERRAMENTAS / SISTEMAS -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Ferramentas / Sistemas</span>
+              <div class="box-grupo-ssma">
+
+                <a
+                  href="https://vps.stratws.com/MeuPainel"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Stratws - Meu Painel</span>
+                </a>
+                <a
+                  href="https://degreed.com/plan/3603646?newWindow=true"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Liderar Times | Plano | Degreed | Treimanentos </span>
+                </a>
+                <a
+                  href="https://gdb.valeglobal.net/gdb/view/login/login.faces"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#E3B023] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Gestão de Diretrizes Básicas</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Coluna 3 - Pessoas (azul) -->
+        <div class="flex flex-col lg:flex-1 coluna-azul">
+          <div class="flex flex-col items-center mb-2 flex-shrink-0">
+            <div class="relative mb-2">
+              <span class="absolute -left-4 top-6 w-4 h-4 rounded-full bg-[#234979]"></span>
+              <span class="w-20 h-20 rounded-full bg-[#234979] border-8 border-white shadow-lg block"></span>
+            </div>
+            <span class="mt-2 text-[#234979] font-semibold text-base text-center">Pessoas</span>
+          </div>
+
+          <!-- LINKS ENVOLTOS NOS CONTAINERS -->
+          <div class="flex flex-col gap-4 pr-1 lg:overflow-y-auto sistemas-coluna">
+
+            <!-- RELATÓRIOS -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Relatórios</span>
+              <div class="box-grupo-ssma">
+
+                <a
+                  href="https://globalvale.sharepoint.com/:x:/r/teams/int-news/_layouts/15/Doc.aspx?sourcedoc=%7B7B84E94E-7E15-4975-BF41-93D4509ADB77%7D&file=Calend%25u00e1rio%20de%20Feriados%20e%20Compensa%25u00e7%25u00f5es%20Vale%20-%202026.xlsx&action=default&mobileredirect=true"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="file-text" class="w-5 h-5"></i>
+                  <span class="text-sm">Calendário de Feriados e Compensações Vale - 2026</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- FERRAMENTAS / SISTEMAS (mantido para padrão, sem itens) -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Ferramentas / Sistemas</span>
+              <div class="box-grupo-ssma">
+                <a
+                  href="https://www.concursolutions.com/"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">SAP CONCUR</span>
+                </a>
+                <a
+                  href="https://linktr.ee/ItinerariosVale"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="globe" class="w-5 h-5"></i>
+                  <span class="text-sm">Itinerários Vale</span>
+                </a>
+                <a
+                  href="https://globalvale.sharepoint.com/teams/int-inst/SitePages/Brazil/rh/Portal-Meu-RH.aspx"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="folder" class="w-5 h-5"></i>
+                  <span class="text-sm">SharePoint - Portal Meu RH</span>
+                </a>
+                <a
+                  href="https://globalvale.sharepoint.com/teams/ExpHubAtende//"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="folder" class="w-5 h-5"></i>
+                  <span class="text-sm">SharePoint - Vale - Experience Hub</span>
+                </a>
+                <a
+                  href="https://globalvale.sharepoint.com/sites/SuporteMariana/SitePages/In%C3%ADcio.aspx?CT=1758211807381&OR=OWA-NT-Mail&CID=470f295d-7ece-a286-64b2-7ca25a056c80"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="folder" class="w-5 h-5"></i>
+                  <span class="text-sm">SharePoint - Suporte Mariana</span>
+                </a>
+                <a
+                  href="https://vale.avipamtur.com.br/"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="map" class="w-5 h-5"></i>
+                  <span class="text-sm">AVIPAM - Portal de Viagens</span>
+                </a>
+                <a
+                  href="https://globalhr.valeglobal.net/psp/ps_2/EMPLOYEE/HRMS/c/V_WORKFLOW_MGR.V_OPENWRKFL_CMP.GBL?&"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">PeopleSoft</span>
+                </a>
+                <a
+                  href="https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMzk2MjE4NTExMzYifQ/all?domainRedirect=true"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#234979] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Viva Engage - CMA Ferrosos</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Coluna 4 - Capacitação (teal/verde) -->
+        <div class="flex flex-col lg:flex-1 coluna-verde">
+          <div class="flex flex-col items-center mb-2 flex-shrink-0">
+            <div class="relative mb-2">
+              <span class="absolute -left-4 top-6 w-4 h-4 rounded-full bg-[#009997]"></span>
+              <span class="w-20 h-20 rounded-full bg-[#009997] border-8 border-white shadow-lg block"></span>
+            </div>
+            <span class="mt-2 text-[#009997] font-semibold text-base text-center">Capacitação</span>
+          </div>
+
+          <!-- LINKS ENVOLTOS NOS CONTAINERS -->
+          <div class="flex flex-col gap-4 pr-1 lg:overflow-y-auto sistemas-coluna">
+
+            <!-- RELATÓRIOS -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Relatórios</span>
+              <div class="box-grupo-ssma">
+
+                <a
+                  href="https://app.powerbi.com/groups/me/apps/7522a122-278c-42f8-ae3d-987549ce12b1/reports/644de8f2-8a81-4beb-9dbd-bf25696d0000/a805cedfd08cb05909da?ctid=7893571b-6c2c-4cef-b4da-7d4b266a0626&amp;experience=power-bi"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="bar-chart" class="w-5 h-5"></i>
+                  <span class="text-sm">Power BI - Matriz de Treinamento SISPAV</span>
+                </a>
+
+                <a
+                  href="https://app.powerbi.com/groups/27c3efe9-5b74-4cb1-89f8-fc0d8fff076a/reports/4d7e2d5e-53be-4b76-adba-42e6b50ce46a/556558affb0f359ae288?ctid=7893571b-6c2c-4cef-b4da-7d4b266a0626&experience=power-bi"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="bar-chart" class="w-5 h-5"></i>
+                  <span class="text-sm">Power BI - Gestão de Treinamentos</span>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- FERRAMENTAS / SISTEMAS (mantido para padrão, sem itens) -->
+            <div class="grupo-ssma">
+              <span class="titulo-grupo-ssma">Ferramentas / Sistemas</span>
+              <div class="box-grupo-ssma">
+                <a
+                  href="https://performancemanager4.successfactors.com/sf/home?bplte_company=VALEPROD&_s.crb=qwX7r2M2vF7Ya7c2sxQX8fGxdUpZRB%252b0jpalpEl9QEM%253d"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Performance Manager</span>
+                </a>
+
+                <a
+                  href="https://vale.plateau.com/learning/user/personal/landOnPortalHome.do?fromSF=Y&fromDeepLink=true&pageID="
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">VES</span>
+                </a>
+
+                 <a
+                  href="https://vale.softexpert.com/softexpert/workspace?page=home"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">SISPAV</span>
+                </a>
+
+                <a
+                  href="https://vps-stratws.siteware.academy/cursos/"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="monitor" class="w-5 h-5"></i>
+                  <span class="text-sm">Cursos VPS Stratws One</span>
+                </a>
+
+                 <a
+                  href="https://globalvale.sharepoint.com/teams/GestaoAtivo/SitePages/Treinamentos-Dispon%C3%ADveis-VP-T%C3%A9cnica.aspx"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="folder" class="w-5 h-5"></i>
+                  <span class="text-sm">sharepoint - Capacitação dos PNRs</span>
+                </a>
+
+                <a
+                  href="https://globalvale.sharepoint.com/teams/REdPIMS_PISystem/Treinamentos%20do%20Projeto/Forms/AllItems.aspx?id=%2Fteams%2FREdPIMS%5FPISystem%2FTreinamentos%20do%20Projeto%2FTreinamentos%20Gravados&viewid=f7803588%2De5d3%2D470c%2Daedb%2De3a2dff08b6f&CT=1749494843291&OR=OWA%2DNT%2DMail&CID=79bd02e6%2Dca25%2Df19d%2Df5f0%2Dc069b0ad88d7&clickParams=eyJYLUFwcE5hbWUiOiJNaWNyb3NvZnQgT3V0bG9vayBXZWIgQXBwIiwiWC1BcHBWZXJzaW9uIjoiMjAyNTA1MzAwMDQuMDgiLCJPUyI6IldpbmRvd3MgMTEifQ%3D%3D"
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-2 bg-[#009997] text-white rounded px-5 py-2.5 min-h-[48px] shadow hover:brightness-90 transition">
+                  <i data-feather="folder" class="w-5 h-5"></i>
+                  <span class="text-sm">sharepoint - REdiscover PIMS - A Jornada do PI System</span>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="src/js/search.js"></script>
+  <script src="src/js/auth.js"></script>
+  <script>
+    // Inicializa os scripts e os ícones após o carregamento do DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      feather.replace();
+      initAuth(); // Inicia a verificação de autenticação
+      initSearch(); // Associa os eventos de busca
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal CMA</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/x-icon" href="src/img/favicon1.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS separado Conteiner -->
+    <link rel="stylesheet" href="src/css/container.css" />
+  </head>
+
+  <body class="bg-gray-100 font-sans w-full max-w-8xl mx-auto flex flex-col min-h-screen lg:h-screen lg:overflow-hidden">
+    <!-- Header -->
+    <header id="pageHeader" class="w-full bg-white border-b shadow-md border-gray-200 sticky top-0 z-20 flex-shrink-0">
+      <div class="max-w-[1500px] mx-auto flex items-center justify-between h-14 px-4 sm:px-6 lg:px-8">
+        <img src="src/img/LogoVale-Portal.png" alt="Logo Vale" class="h-10 w-auto" />
+        <div class="flex items-center gap-4">
+          <!-- Ícone de perfil -->
+          <span id="profileIcon" class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-200 cursor-pointer flex-shrink-0">
+            <i data-feather="user" class="w-6 h-6 text-gray-600"></i>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex-1 lg:overflow-y-hidden">
+      <div class="w-full max-w-[1500px] mx-auto p-4 sm:p-6 lg:p-8 h-full">
+        <!-- Container das colunas com layout responsivo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-8 h-full">
+          <!-- Container dos cards -->
+          <div class="card-container">
+
+            <!-- Coluna 1 (Card 1) -->
+            <div class="flex-col lg:flex-1">
+              <div class="card">
+                <div class="card-text">CMA - PCM - Engenharia</div>
+
+                <a href="CMA.html" class="arrow-icon" title="Abrir"> → </a>
+
+                <button
+                  class="plus-icon"
+                  onclick="toggleInfo(this)"
+                  title="Mais informações"
+                  aria-expanded="false"
+                  type="button"
+                >
+                  +
+                </button>
+
+                <div class="info-box">
+                  <p>
+                    Esta caixa reúne os relatórios e as aplicações utilizados no Centro de Monitoramento de Ativos, PCM e pela Engenharia do Complexo Mariana, contemplando Mina e Usina.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 3 (Card 3) -->
+            <div class="flex-col lg:flex-1">
+              <div class="card">
+                <div class="card-text">SSMA - Suporte - Melhoria Contínua </div>
+
+                <a href="SSMA_Lean.html" class="arrow-icon" title="Abrir"> → </a>
+
+                <button
+                  class="plus-icon"
+                  onclick="toggleInfo(this)"
+                  title="Mais informações"
+                  aria-expanded="false"
+                  type="button"
+                >
+                  +
+                </button>
+
+                <div class="info-box">
+                  <p>
+                    Aplicações e relatórios utilizados para SSMA ( Saúde, Segurança e Meio Ambiente), Melhoria Contínua e Suporte técnico
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 4 (Card 4) -->
+            <div class="flex-col lg:flex-1">
+              <div class="card">
+                <div class="card-text">Pessoas</div>
+
+                <a href="Pessoas.html" class="arrow-icon" title="Abrir"> → </a>
+
+                <button
+                  class="plus-icon"
+                  onclick="toggleInfo(this)"
+                  title="Mais informações"
+                  aria-expanded="false"
+                  type="button"
+                >
+                  +
+                </button>
+
+                <div class="info-box">
+                  <p>
+                    Nesta caixa estão contidos os conteúdos, relatórios e aplicações voltados aos colaboradores.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna ADM (Card 5) -->
+            <div id="adminColuna" class="flex-col lg:flex-1 hidden">
+              <div class="card">
+                <div class="card-text">ADM</div>
+
+                <a href="URL-DA-PAGINA.html" class="arrow-icon" title="Abrir"> → </a>
+
+                <button
+                  class="plus-icon"
+                  onclick="toggleInfo(this)"
+                  title="Mais informações"
+                  aria-expanded="false"
+                  type="button"
+                >
+                  +
+                </button>
+
+                <div class="info-box">
+                  <p>
+                    Gestão integrada de monitoramento de ativos de manutenção de diversas áreas de negócio,
+                    como Mineração, Pelotização, Porto, Ferrovia, oferecendo visão holística dos dados
+                    consolidados e alertas registrados para os ativos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /card-container -->
+        </div>
+      </div>
+    </main>
+
+    <script src="src/js/search.js"></script>
+    <script src="src/js/auth.js"></script>
+    <script>
+      // Inicializa os scripts e os ícones após o carregamento do DOM
+      document.addEventListener('DOMContentLoaded', () => {
+        feather.replace();
+        if (typeof initAuth === 'function') initAuth();   // evita erro se não carregou
+        if (typeof initSearch === 'function') initSearch(); // evita erro se não carregou
+      });
+
+      /**
+       * Alterna a classe do card para mostrar/ocultar a info-box via CSS.
+       * Mantém HTML limpo; estilos ficam em src/css/container.css.
+       */
+      function toggleInfo(buttonEl) {
+        const card = buttonEl.closest('.card');
+        if (!card) return;
+
+        const isOpen = card.classList.toggle('is-open');
+
+        // Atualiza acessibilidade e ícone do botão
+        buttonEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        buttonEl.textContent = isOpen ? '–' : '+';
+      }
+    </script>
+  </body>
+</html>

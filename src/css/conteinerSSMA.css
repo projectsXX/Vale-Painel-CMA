@@ -1,0 +1,106 @@
+
+/* =========================================================
+   CONTAINERS INTERNOS - PADRÃO PORTAL CMA
+   Relatórios / Ferramentas / Sistemas
+   ========================================================= */
+
+/* -------- Estrutura base do grupo -------- */
+
+.grupo-ssma {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* -------- Título do container (fora do box) -------- */
+
+.titulo-grupo-ssma {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 4px;
+  line-height: 1;
+
+  /* fallback caso a coluna não tenha cor */
+  color: #6b7280;
+}
+
+/* -------- Fundo do container -------- */
+
+.box-grupo-ssma {
+  background-color: #d1d5db;
+  border-radius: 14px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* Profundidade */
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.10),
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+/* -------- Espaçamento entre grupos -------- */
+.sistemas-coluna {
+  gap: 16px;
+}
+
+/* -------- Ajustes para telas maiores -------- */
+@media (min-width: 1024px) {
+  .box-grupo-ssma {
+    padding: 14px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================================================
+   CORES DOS TÍTULOS POR COLUNA (POR COR)
+   ========================================================= */
+
+/* Vermelho */
+:where(.coluna-vermelho) .titulo-grupo-ssma {
+  color: #952B2D !important;
+}
+
+/* Amarelo */
+:where(.coluna-amarelo) .titulo-grupo-ssma {
+  color: #E3B023 !important;
+}
+
+/* Azul */
+:where(.coluna-azul) .titulo-grupo-ssma {
+  color: #234979 !important;
+}
+
+/* Verde / Teal */
+:where(.coluna-verde) .titulo-grupo-ssma {
+  color: #009997 !important;
+}
+
+/* =========================================================
+   MELHORIAS VISUAIS OPCIONAIS
+   ========================================================= */
+
+/* Hover sutil */
+.box-grupo-ssma:hover {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    0 3px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+}
+
+/* Quando o box está vazio */
+.box-grupo-ssma:empty {
+  padding: 10px;
+  background-color: #e5e7eb;
+  box-shadow: none;
+}
+
+/* Consistência com botões internos */
+.box-grupo-ssma a {
+  border-radius: 6px;
+}
